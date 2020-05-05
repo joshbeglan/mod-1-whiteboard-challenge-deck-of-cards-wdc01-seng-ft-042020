@@ -2,22 +2,35 @@ class Deck
 
     @@cards = []
 
-    def initialize(cards)
-        @@cards << 
-    end
-
-end
-
-class Card
+    rank = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+    suit = ["Hearts", "Clubs", "Diamonds", "Spades"]
 
     i = 0
     while i < rank.length
-        i += 1
         j = 0
         while j < suit.length
-            pair = rank[i] + suit[j]
+            @@cards << [rank[i], suit[j]]
             j += 1
         end
+        i += 1
+    end
+
+    def self.all
+        @@cards
+    end
+
+    def self.choose_card
+        random_card = self.all.sample
+        self.all.delete(random_card)
     end
 
 end
+
+class Card < Deck
+
+
+
+end
+
+pp Deck.choose_card
+pp Deck.all
