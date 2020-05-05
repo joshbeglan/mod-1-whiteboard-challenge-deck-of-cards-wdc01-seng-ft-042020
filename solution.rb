@@ -28,7 +28,23 @@ end
 
 class Card < Deck
 
+    attr_reader :rank, :suit
 
+    @@cards = []
+
+  def initialize(rank, suit)
+    @rank = rank
+    @suit = suit
+    @@cards << self
+  end 
+
+  def self.all
+    @@cards
+  end
+
+  def self.create
+    
+  end
 
 end
 
